@@ -22,10 +22,15 @@ void MainWindow::on_temp_button_clicked()
     calcWin.exec();
 }
 
-
 void MainWindow::on_end_button_clicked()
 {
     EndCalc calcWin(this);
     calcWin.exec();
 }
 
+
+void MainWindow::on_during_button_clicked()
+{
+    DuringCalc calcWin(this);
+    calcWin.exec();
+}

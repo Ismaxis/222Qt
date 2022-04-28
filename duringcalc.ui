@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EndCalc</class>
- <widget class="QDialog" name="EndCalc">
+ <class>DuringCalc</class>
+ <widget class="QDialog" name="DuringCalc">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>454</width>
-    <height>336</height>
+    <width>426</width>
+    <height>276</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>End</string>
+   <string>During</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -47,11 +47,11 @@
      <property name="title">
       <string/>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QRadioButton" name="radioButton_degree">
+       <widget class="QRadioButton" name="radioButton_pmi">
         <property name="text">
-         <string>degree ( comp/exp ) </string>
+         <string>Pmi</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -59,9 +59,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_work">
+       <widget class="QRadioButton" name="radioButton_pms">
         <property name="text">
-         <string>work</string>
+         <string>Pms</string>
         </property>
        </widget>
       </item>
@@ -91,30 +91,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLineEdit" name="le_tempAir">
+       <widget class="QLineEdit" name="le_tempStartAir">
         <property name="placeholderText">
-         <string>temp</string>
+         <string>temp start</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="le_degreeAir">
+       <widget class="QLineEdit" name="le_tempEndAir">
         <property name="placeholderText">
-         <string>comp degree</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="le_workAir">
-        <property name="placeholderText">
-         <string>work</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="le_effAir">
-        <property name="placeholderText">
-         <string>eff</string>
+         <string>temp end</string>
         </property>
        </widget>
       </item>
@@ -142,30 +128,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QLineEdit" name="le_tempFuel">
+       <widget class="QLineEdit" name="le_tempStartFuel">
         <property name="placeholderText">
-         <string>temp</string>
+         <string>temp start</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="le_degreeFuel">
+       <widget class="QLineEdit" name="le_tempEndFuel">
         <property name="placeholderText">
-         <string>exp degree</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="le_workFuel">
-        <property name="placeholderText">
-         <string>work</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="le_effFuel">
-        <property name="placeholderText">
-         <string>eff</string>
+         <string>temp end</string>
         </property>
        </widget>
       </item>
@@ -191,7 +163,7 @@
      <property name="title">
       <string>Mix</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
        <widget class="QLineEdit" name="le_capAir">
         <property name="enabled">

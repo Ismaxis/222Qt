@@ -1,5 +1,5 @@
-#ifndef TEMPCALC_H
-#define TEMPCALC_H
+#ifndef DURINGCALC_H
+#define DURINGCALC_H
 
 #include <QDialog>
 #include "Table.h"
@@ -13,16 +13,16 @@ extern float a;
 extern float L0;
 
 namespace Ui {
-class TempCalc;
+class DuringCalc;
 }
 
-class TempCalc : public QDialog
+class DuringCalc : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit TempCalc(QWidget *parent = nullptr);
-    ~TempCalc();
+    explicit DuringCalc(QWidget *parent = nullptr);
+    ~DuringCalc();
 
 private slots:
     void on_pb_calcAir_clicked();
@@ -32,7 +32,7 @@ private slots:
     void on_pb_calcMix_clicked();
 
 private:
-    Ui::TempCalc *ui;
+    Ui::DuringCalc *ui;
 };
 
-#endif // TEMPCALC_H
+#endif // DURINGCALC_H

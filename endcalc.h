@@ -2,9 +2,10 @@
 #define ENDCALC_H
 
 #include <QDialog>
-#include "Sheet.h"
-#include "tableData.h"
+#include "Table.h"
 #include "funcs.h"
+
+extern Table table;
 
 extern float RAir;
 extern float RFuel;
@@ -36,9 +37,6 @@ private slots:
 
 private:
     Ui::EndCalc *ui;
-    std::vector<std::vector<std::vector<float>>> tables;
-
-    TableData getData(float temp, int tabelId, int pmiOrPms = 2);
 };
 
 #endif // ENDCALC_H

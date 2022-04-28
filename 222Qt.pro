@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Sheet.cpp \
+    duringcalc.cpp \
     endcalc.cpp \
     funcs.cpp \
     main.cpp \
@@ -18,6 +19,8 @@ SOURCES += \
 
 HEADERS += \
     Sheet.h \
+    Table.h \
+    duringcalc.h \
     endcalc.h \
     funcs.h \
     mainwindow.h \
@@ -25,6 +28,7 @@ HEADERS += \
     tempcalc.h
 
 FORMS += \
+    duringcalc.ui \
     endcalc.ui \
     mainwindow.ui \
     tempcalc.ui

@@ -9,12 +9,6 @@ EndCalc::EndCalc(QWidget *parent) :
 
     ui->le_workAir->hide();
     ui->le_workFuel->hide();
-
-    Sheet reader;
-    reader.setPath("D:/C++/222Qt/air.csv");
-    tables.push_back(reader.readAsFloat());
-    reader.setPath("D:/C++/222Qt/fuel.csv");
-    tables.push_back(reader.readAsFloat());
 }
 
 EndCalc::~EndCalc()
@@ -22,25 +16,6 @@ EndCalc::~EndCalc()
     delete ui;
 }
 
-TableData EndCalc::getData(float temp, int tableId, int pmiOrPms)
-{
-    // 0 - air, 1 - fuel
-    // 2 - pmi, 3 - pms;
-    TableData result;
-
-    for(int i = 1; i < tables[tableId].size(); i++)
-    {
-        if(tables[tableId][i][0] > temp)
-        {
-            result.tLow = tables[tableId][i - 1][0];
-            result.cLow = tables[tableId][i - 1][pmiOrPms];
-            result.tHigh = tables[tableId][i][0];
-            result.cHigh = tables[tableId][i][pmiOrPms];
-            break;
-        }
-    }
-    return result;
-}
 
 void EndCalc::on_pb_calcAir_clicked()
 {
@@ -49,7 +24,7 @@ void EndCalc::on_pb_calcAir_clicked()
     float work = ui->le_workAir->text().toFloat();
     float eff = ui->le_effAir->text().toFloat();
 
-    TableData data = getData(temp, 0); // pmi always
+    TableData data = table.getData(temp, 0); // pmi always
 
     float Cstart = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
 
@@ -74,7 +49,7 @@ void EndCalc::on_pb_calcFuel_clicked()
     float work = ui->le_workFuel->text().toFloat();
     float eff = ui->le_effFuel->text().toFloat();
 
-    TableData data = getData(temp, 1); // pmi always
+    TableData data = table.getData(temp, 1); // pmi always
 
     float Cstart = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
 

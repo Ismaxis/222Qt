@@ -6,37 +6,11 @@ TempCalc::TempCalc(QWidget *parent) :
     ui(new Ui::TempCalc)
 {
     ui->setupUi(this);
-
-    Sheet reader;
-    reader.setPath("D:/C++/222Qt/air.csv");
-    tables.push_back(reader.readAsFloat());
-    reader.setPath("D:/C++/222Qt/fuel.csv");
-    tables.push_back(reader.readAsFloat());
 }
 
 TempCalc::~TempCalc()
 {
     delete ui;
-}
-
-TableData TempCalc::getData(float temp, int tableId, int pmiOrPms)
-{
-    // 0 - air, 1 - fuel
-    // 2 - pmi, 3 - pms;
-    TableData result;
-
-    for(int i = 1; i < tables[tableId].size(); i++)
-    {
-        if(tables[tableId][i][0] > temp)
-        {
-            result.tLow = tables[tableId][i - 1][0];
-            result.cLow = tables[tableId][i - 1][pmiOrPms];
-            result.tHigh = tables[tableId][i][0];
-            result.cHigh = tables[tableId][i][pmiOrPms];
-            break;
-        }
-    }
-    return result;
 }
 
 void TempCalc::on_pb_calcAir_clicked()
@@ -49,7 +23,7 @@ void TempCalc::on_pb_calcAir_clicked()
         pmiOrPms = 3;
     }
 
-    TableData data = getData(temp , 0, pmiOrPms);
+    TableData data = table.getData(temp , 0, pmiOrPms);
 
     float CpAir = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
     ui->output_air->setText(QString::number(CpAir));
@@ -66,7 +40,7 @@ void TempCalc::on_pb_calcFuel_clicked()
         pmiOrPms = 3;
     }
 
-    TableData data = getData(temp , 1, pmiOrPms);
+    TableData data = table.getData(temp , 1, pmiOrPms);
 
     float CpFuel = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
     ui->output_fuel->setText(QString::number(CpFuel));

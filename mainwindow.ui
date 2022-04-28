@@ -6,47 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>691</width>
-    <height>530</height>
+    <width>270</width>
+    <height>85</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Capacity calc</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="temp_button">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>290</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Temp Calc</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="end_button">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>290</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>End Calc</string>
-    </property>
-   </widget>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="temp_button">
+      <property name="text">
+       <string>Temp Calc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="end_button">
+      <property name="text">
+       <string>End Calc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="during_button">
+      <property name="text">
+       <string>During Calc</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>691</width>
+     <width>270</width>
      <height>21</height>
     </rect>
    </property>
