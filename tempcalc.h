@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "Sheet.h"
 #include "tableData.h"
+#include "funcs.h"
 
 namespace Ui {
 class TempCalc;
@@ -11,16 +12,6 @@ class TempCalc;
 
 extern float RFuel;
 extern float RAir;
-extern float tLow;
-extern float CpmiLowFuel;
-extern float CpmsLowFuel;
-extern float CpmiLowAir;
-extern float CpmsLowAir;
-extern float tHigh;
-extern float CpmiHighFuel;
-extern float CpmsHighFuel;
-extern float CpmiHighAir;
-extern float CpmsHighAir;
 extern float a;
 extern float L0;
 

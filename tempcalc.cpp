@@ -1,17 +1,15 @@
 #include "tempcalc.h"
 #include "ui_tempcalc.h"
-#include "funcs.cpp"
 
 TempCalc::TempCalc(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TempCalc)
 {
     ui->setupUi(this);
-    Sheet reader;
 
+    Sheet reader;
     reader.setPath("D:/C++/222Qt/air.csv");
     tables.push_back(reader.readAsFloat());
-
     reader.setPath("D:/C++/222Qt/fuel.csv");
     tables.push_back(reader.readAsFloat());
 }
@@ -51,9 +49,9 @@ void TempCalc::on_pb_calcAir_clicked()
         pmiOrPms = 3;
     }
 
-    TableData curData = getData(temp , 0, pmiOrPms);
+    TableData data = getData(temp , 0, pmiOrPms);
 
-    float CpAir = Cp(temp, curData.cLow, curData.cHigh, curData.tLow, curData.tHigh);
+    float CpAir = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
     ui->output_air->setText(QString::number(CpAir));
     ui->le_capAir->setText(QString::number(CpAir));
 }
@@ -68,9 +66,9 @@ void TempCalc::on_pb_calcFuel_clicked()
         pmiOrPms = 3;
     }
 
-    TableData curData = getData(temp , 1, pmiOrPms);
+    TableData data = getData(temp , 1, pmiOrPms);
 
-    float CpFuel = Cp(temp, curData.cLow, curData.cHigh, curData.tLow, curData.tHigh);
+    float CpFuel = Cp(temp, data.cLow, data.cHigh, data.tLow, data.tHigh);
     ui->output_fuel->setText(QString::number(CpFuel));
     ui->le_capFuel->setText(QString::number(CpFuel));
 }
@@ -81,7 +79,8 @@ void TempCalc::on_pb_calcMix_clicked()
     float CpAir = ui->le_capAir->text().toFloat();
     float CpFuel = ui->le_capFuel->text().toFloat();
 
-    float CpMix = Cpmix(a, L0, CpAir, CpFuel);
+    float CpMix = Cpmix(a, L0, CpAir, CpFuel); // a and L0 must takes from other module
+
     ui->output_mix->setText(QString::number(CpMix));
 }
 

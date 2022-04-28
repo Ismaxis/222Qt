@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "tempcalc.h"
+#include "endcalc.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +19,8 @@ public:
 
 private slots:
     void on_temp_button_clicked();
+
+    void on_end_button_clicked();
 
 private:
     Ui::MainWindow *ui;

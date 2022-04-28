@@ -1,4 +1,4 @@
-#include "math.h"
+#include "funcs.h"
 
 // air or fuel
 float Cp(float temp, float CLow, float CHigh, float tLow, float tHigh)
@@ -31,12 +31,46 @@ float TendCompDegree(float Tstart, float degree, float R, float C,float eff)
 }
 
 // air compress Work
-float TendCompWork(float Tstart, float H, float C, float eff)
+float TendCompWork(float Tstart, float work, float C, float eff)
 {
     float newC, buffC = C;
     while(true)
     {
-        newC = Tstart + H / (eff * buffC);
+        newC = Tstart + work / (eff * buffC);
+        if(abs(newC - buffC) / buffC < 0.01f)
+        {
+            buffC = newC;
+            break;
+        }
+        buffC = newC;
+    }
+    return buffC;
+}
+
+// fuel or mix expand degree
+float TendExpDegree(float Tstart, float degree, float R, float C,float eff)
+{
+    float newC, buffC = C;
+    while(true)
+    {
+        newC = Tstart - Tstart * (1 - pow(degree, R/buffC)) * eff;
+        if(abs(newC - buffC) / buffC < 0.01f)
+        {
+            buffC = newC;
+            break;
+        }
+        buffC = newC;
+    }
+    return buffC;
+}
+
+// fuel or mix expand Work
+float TendExpWork(float Tstart, float work, float C, float eff)
+{
+    float newC, buffC = C;
+    while(true)
+    {
+        newC = Tstart - (work * eff) / buffC;
         if(abs(newC - buffC) / buffC < 0.01f)
         {
             buffC = newC;

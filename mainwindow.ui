@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Capacity calc</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="temp_button">
@@ -25,6 +25,19 @@
     </property>
     <property name="text">
      <string>Temp Calc</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="end_button">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>290</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>End Calc</string>
     </property>
    </widget>
   </widget>
