@@ -2,6 +2,8 @@
 #define TEMPCALC_H
 
 #include <QDialog>
+#include "Sheet.h"
+#include "tableData.h"
 
 namespace Ui {
 class TempCalc;
@@ -39,6 +41,9 @@ private slots:
 
 private:
     Ui::TempCalc *ui;
+    std::vector<std::vector<std::vector<float>>> tables;
+
+    TableData getData(float temp, int tabelId, int pmiOrPms);
 };
 
 #endif // TEMPCALC_H
